@@ -18,6 +18,14 @@ const Register = ({setShowRegister}) => {
       email : emailRef.current.value,
       password: passwordRef.current.value
     }
+
+    try{
+      const response = await axios.post('/users/register',newUser)
+      console.log(response)
+      setShowRegister(false)
+    }catch(err){
+      console.log(err)
+    }
   }
 
   return (
