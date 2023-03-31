@@ -13,7 +13,21 @@
 
 /* Need to style "form", "input", "textarea", "input::placeholder, textarea::placeholder", "submitBtn", "submitBtn:hover" for when a user adds a pin*/
 
-/* Need to style  "footer", */
+/* Need to style  "footer","footer:hover", "button" "button login", "button register", "register:hover","login:hover", "logout", "logout:hover"*/
 .footer {
   z-index: 100;
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  height: auto;
+  width: 100vw;
+  background-color: blue;
+  bottom: 0;
+  justify-content: center;
+
+
+
+
 }
+
