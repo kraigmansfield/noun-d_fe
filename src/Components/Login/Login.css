@@ -15,4 +15,12 @@
     justify-content: space-between;
     flex-direction: column;
 }
-/* Need to style: "login_container" , "application",  */
+
+.login_cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+
+}
+/* Need to style: "login_container" , "application", "login_button", "login_button:hover", "input", "login_cancel" */

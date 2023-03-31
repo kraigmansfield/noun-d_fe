@@ -1,0 +1,26 @@
+.register_container {
+    display: flex;
+    width: 280px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.register_cancel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+/* Needs Styled: "register_container", "application", "register_button","register_button:hover" ,"input", "register_cancel",  */

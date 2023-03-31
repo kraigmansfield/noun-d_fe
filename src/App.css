@@ -14,6 +14,14 @@
 /* Need to style "form", "input", "textarea", "input::placeholder, textarea::placeholder", "submitBtn", "submitBtn:hover" for when a user adds a pin*/
 
 /* Need to style  "footer","footer:hover", "button" "button login", "button register", "register:hover","login:hover", "logout", "logout:hover"*/
+.button {
+  border:none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15 px;
+}
+
 .footer {
   z-index: 100;
   position: absolute;
