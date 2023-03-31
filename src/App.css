@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.icon {
+  cursor: pointer;
+}
+
+
+/* Need to style "card","place","label","description","star","info"  for the card information*/
+
+/* Need to style "form", "input", "textarea", "input::placeholder, textarea::placeholder", "submitBtn", "submitBtn:hover" for when a user adds a pin*/
+
+/* Need to style  "footer", */
+.footer {
+  z-index: 100;
+}
