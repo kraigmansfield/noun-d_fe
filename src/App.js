@@ -40,14 +40,47 @@ function App() {
     })
   }
 
-  const handlePinSubmit = () => {
+  const handlePinSubmit = async (e) => {
+    e.preventDefault()
+    
+    const newPin = {
+      username : currentUser,
+      title : title,
+      rating : rating,
+      description : description,
+      lat : newPlace.lat,
+      lon: newPlace.lng
 
+    }
+
+    try{
+      if (!currentUser)
+      {
+
+      }
+      else{
+        const response = await axios.post("/pins", newPin)
+        setPins([...pins,response.data])
+        setNewPlace(null)
+
+
+        setRating(1)
+        setDescription(null)
+        setTitle(null)
+      }
+    }catch(err){
+      console.log(err)
+    }
   }
 
   const handleMarkerClicked = (id, lat, lon) => {
     console.log(lat)
     console.log(lon)
     setCurrentPlaceId(id)
+  }
+
+  const handleLogout = () => {
+    setCurrentUser(null)
   }
 
   React.useEffect(() => {
@@ -81,7 +114,7 @@ function App() {
               <PushPinIcon
                 className="icon"
                 onClick={() => handleMarkerClicked(p._id, p.lat, p.lon)}
-                style={{ fontSize: viewport.zoom * 2, color: 'slateblue' }}
+                style={{ fontSize: viewport.zoom * 2, color: p.username === currentUser ? "tomato":"slateblue" }}
               />
             </Marker>
             {p._id === currentPlaceId && (
@@ -155,7 +188,7 @@ function App() {
         <div className='footer'>
           <div className='footer_down'>
             {
-              currentUser ? (<button className='button_logout'>Log out</button>)
+              currentUser ? (<button className='button_logout' onClick={handleLogout}>Log out</button>)
               : 
               (
                 <div>
