@@ -18,7 +18,8 @@
     "react-scripts": "5.0.1",
     "source-map-loader": "^4.0.1",
     "timeago.js": "^4.0.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "worker-loader": "^3.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,16 +33,16 @@
       "react-app/jest"
     ]
   },
-    "browserslist": {
-      "production": [
-        ">0.2%", 
-        "not dead", 
-        "not ie 11", 
-        "not chrome < 51", 
-        "not safari < 10", 
-        "not android < 51",
-        "not op_mini all"
-      ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie 11",
+      "not chrome < 51",
+      "not safari < 10",
+      "not android < 51",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
