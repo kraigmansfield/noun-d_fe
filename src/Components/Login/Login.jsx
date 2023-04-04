@@ -15,7 +15,7 @@ const Login = ({ setShowLogin, setCurrentUser }) => {
       password: passRef.current.value,
     };
     try {
-      const response = await axios.post("/users/login", newUser);
+      const response = await axios.post("/api/users/login", newUser);
       setCurrentUser(response.data.username);
       setShowLogin(false);
     } catch (err) {

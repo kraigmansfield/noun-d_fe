@@ -20,7 +20,7 @@ const Register = ({setShowRegister}) => {
     }
 
     try{
-      const response = await axios.post('/users/register',newUser)
+      const response = await axios.post('/api/users/register',newUser)
       console.log(response)
       setShowRegister(false)
     }catch(err){
