@@ -69,7 +69,7 @@ function App() {
 
       }
       else{
-        const response = await axios.post("/api/pins", newPin)
+        const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
         setPins([...pins,response.data])
         setNewPlace(null)
 
