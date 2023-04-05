@@ -14,6 +14,27 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    border: solid black 2px;
+}
+.email_input {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.username_input {
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 10px
+}
+
+.password_input {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.register {
+    align-items: center;
+    margin-left: 90px;
 }
 
 .register_cancel {
