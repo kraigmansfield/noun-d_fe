@@ -69,7 +69,8 @@ function App() {
 
       }
       else{
-        const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
+        // const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
+        const response = await axios.post("/pins", newPin)
         setPins([...pins,response.data])
         setNewPlace(null)
 
@@ -97,7 +98,7 @@ function App() {
     const getPins = async () => {
       try {
         const response = await axios.get('/pins')
-        // console.log(response)
+        console.log(response)
         setPins(response.data)
       } catch (err) {
         console.log(err)
