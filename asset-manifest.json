@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/noun-d_fe/static/css/main.a06adba0.css",
+    "main.js": "/noun-d_fe/static/js/main.b3284562.js",
+    "static/js/mapbox-gl-csp-worker.9874f99a.worker.js": "/noun-d_fe/static/js/mapbox-gl-csp-worker.9874f99a.worker.js",
+    "index.html": "/noun-d_fe/index.html",
+    "main.a06adba0.css.map": "/noun-d_fe/static/css/main.a06adba0.css.map",
+    "main.b3284562.js.map": "/noun-d_fe/static/js/main.b3284562.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a06adba0.css",
+    "static/js/main.b3284562.js"
+  ]
+}
