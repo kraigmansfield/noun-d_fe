@@ -21,6 +21,20 @@
     top: 5px;
     right: 5px;
     cursor: pointer;
+}
 
+.user_input {
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.pass_input {
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.login_button {
+    margin-left:100px;
+    margin-bottom: 20px;
 }
 /* Need to style: "login_container" , "application", "login_button", "login_button:hover", "input", "login_cancel" */
