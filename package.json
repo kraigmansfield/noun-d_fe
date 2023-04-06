@@ -1,6 +1,5 @@
 {
   "name": "noun-d_fe",
-  "homepage": "https://kraigmansfield.github.io/noun-d_fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
