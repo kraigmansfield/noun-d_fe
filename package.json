@@ -55,5 +55,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://noun-d-fe.netlify.app/api/"
+  "proxy": "https://localhost:7800/api"
 }
