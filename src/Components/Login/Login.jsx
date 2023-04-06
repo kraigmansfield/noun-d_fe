@@ -16,7 +16,7 @@ const Login = ({ setShowLogin, setCurrentUser }) => {
     };
     try {
       // const response = await axios.post("https://noun-d-be.herokuapp.com/api/users/login", newUser);
-      const response = await axios.post("/users/login", newUser);
+      const response = await axios.post("users/login", newUser);
       setCurrentUser(response.data.username);
       setShowLogin(false);
     } catch (err) {
