@@ -51,5 +51,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://noun-d-fe.netlify.app/"
+  "proxy": "https://noun-d-fe.netlify.app/api/"
 }
