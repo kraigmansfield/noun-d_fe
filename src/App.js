@@ -5,30 +5,28 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import axios from 'axios'
 import PushPinIcon from '@mui/icons-material/PushPin'
 import StarRateIcon from '@mui/icons-material/StarRate'
-import {format} from "timeago.js"
+import { format } from 'timeago.js'
 import Register from './Components/Register/Register'
 import Login from './Components/Login/Login'
-import ReactMapGL, { FlyToInterpolator } from 'react-map-gl';    
-import 'mapbox-gl/dist/mapbox-gl.css';
-// added the following 6 lines.
-import mapboxgl from 'mapbox-gl';
+import ReactMapGL, { FlyToInterpolator } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import mapboxgl from 'mapbox-gl'
 
 // The following is required to stop "npm build" from transpiling mapbox code.
 // notice the exclamation point in the import.
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default
 
 function App() {
   const [pins, setPins] = React.useState([])
-  
-  
+
   const [viewport, setViewport] = React.useState({
     longitude: 12.4,
     latitude: 37.8,
     zoom: 14,
   })
-  
+
   const [currentPlaceId, setCurrentPlaceId] = React.useState(null)
   const [newPlace, setNewPlace] = React.useState(null)
   const [title, setTitle] = React.useState(null)
@@ -44,42 +42,38 @@ function App() {
     let lat = e.lngLat.lat
     let lon = e.lngLat.lng
 
-    setNewPlace ({
-      lat:lat,
-      lng:lon
+    setNewPlace({
+      lat: lat,
+      lng: lon,
     })
   }
 
   const handlePinSubmit = async (e) => {
     e.preventDefault()
-    
-    const newPin = {
-      username : currentUser,
-      title : title,
-      rating : rating,
-      description : description,
-      lat : newPlace.lat,
-      lon: newPlace.lng
 
+    const newPin = {
+      username: currentUser,
+      title: title,
+      rating: rating,
+      description: description,
+      lat: newPlace.lat,
+      lon: newPlace.lng,
     }
 
-    try{
-      if (!currentUser)
-      {
-
-      }
-      else{
+    try {
+      if (!currentUser) {
+      } else {
         // const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
-        const response = await axios.post("/pins", newPin)
-        setPins([...pins,response.data])
+        const response = await axios.post('https://noun-d-be.herokuapp.com/', newPin)
+        console.log(response)
+        setPins([...pins, response.data])
         setNewPlace(null)
-
 
         setRating(1)
         setDescription(null)
         setTitle(null)
       }
-    }catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
@@ -125,7 +119,10 @@ function App() {
               <PushPinIcon
                 className="icon"
                 onClick={() => handleMarkerClicked(p._id, p.lat, p.lon)}
-                style={{ fontSize: viewport.zoom * 2, color: p.username === currentUser ? "tomato":"slateblue" }}
+                style={{
+                  fontSize: viewport.zoom * 2,
+                  color: p.username === currentUser ? 'tomato' : 'slateblue',
+                }}
               />
             </Marker>
             {p._id === currentPlaceId && (
@@ -148,76 +145,89 @@ function App() {
                 </div>
 
                 <label>Information</label>
-                  <div className='info'>
-                    <span className='username'>Created by <b>{p.username} </b></span>
-                    <span className='date'>{format(p.createdAt)}</span>
-                  </div>
+                <div className="info">
+                  <span className="username">
+                    Created by <b>{p.username} </b>
+                  </span>
+                  <span className="date">{format(p.createdAt)}</span>
+                </div>
               </Popup>
             )}
           </>
         ))}
 
-        {
-          newPlace &&
+        {newPlace && (
           <Popup
-          longitude={newPlace.lng}
-          latitude={newPlace.lat}
-          closeOnClick={false}
-          closeOnMove={false}
-          onClose={() => setNewPlace(null)} 
-          anchor="left"
+            longitude={newPlace.lng}
+            latitude={newPlace.lat}
+            closeOnClick={false}
+            closeOnMove={false}
+            onClose={() => setNewPlace(null)}
+            anchor="left"
           >
             <div>
               <form onSubmit={handlePinSubmit}>
                 <label>Title</label>
-                <input placeholder='Enter a Title'
-                onChange={(e) => setTitle(e.target.value)}
+                <input
+                  placeholder="Enter a Title"
+                  onChange={(e) => setTitle(e.target.value)}
                 />
 
                 <label>Review</label>
-                <textarea placeholder='Say something about this place'
-                onChange={(e) => setDescription(e.target.value)}
+                <textarea
+                  placeholder="Say something about this place"
+                  onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <label>Rating</label>
-                <select onChange={(e) => setRating(e.target.value)}
-                >
-                  <option value = "1">1</option>
-                  <option value = "2">2</option>
-                  <option value = "3">3</option>
-                  <option value = "4">4</option>
-                  <option value = "5">5</option>
-
+                <select onChange={(e) => setRating(e.target.value)}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
                 </select>
-                <button className='submitBtn' type="submit">Add Pin </button>
+                <button className="submitBtn" type="submit">
+                  Add Pin{' '}
+                </button>
               </form>
             </div>
           </Popup>
-        }
+        )}
       </Map>
 
-        <div className='footer'>
-          <div className='footer_down'>
-            {
-              currentUser ? (<button className='button_logout' onClick={handleLogout}>Log out</button>)
-              : 
-              (
-                <div>
-                  <button className='button login'
-                  onClick={() => {setShowLogin(true)}}>
-                    Login
-                  </button>
-                  <button className='button register'
-                  onClick={() => {setShowRegister(true)}}>
-                    Register
-                  </button>
-                </div>
-              )
-            }
-          </div>
+      <div className="footer">
+        <div className="footer_down">
+          {currentUser ? (
+            <button className="button_logout" onClick={handleLogout}>
+              Log out
+            </button>
+          ) : (
+            <div>
+              <button
+                className="button login"
+                onClick={() => {
+                  setShowLogin(true)
+                }}
+              >
+                Login
+              </button>
+              <button
+                className="button register"
+                onClick={() => {
+                  setShowRegister(true)
+                }}
+              >
+                Register
+              </button>
+            </div>
+          )}
         </div>
-          {showRegister && <Register setShowRegister={setShowRegister}/>}
-          {showLogin && <Login setShowLogin={setShowLogin} setCurrentUser={setCurrentUser}/>}
+      </div>
+      {showRegister && <Register setShowRegister={setShowRegister} />}
+      {showLogin && (
+        <Login setShowLogin={setShowLogin} setCurrentUser={setCurrentUser} />
+      )}
     </div>
   )
 }

@@ -35,9 +35,9 @@ const Register = ({setShowRegister}) => {
         Create a Profile
       </div>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='username' ref={nameRef}/>
-        <input type="email" placeholder='email' ref={emailRef}/>
-        <input type="password" placeholder='password' ref={passwordRef}/>
+        <input className ="username_input" type="text" placeholder='username' ref={nameRef}/>
+        <input className ="email_input"   type="email" placeholder='email' ref={emailRef}/>
+        <input className ="password_input"  type="password" placeholder='password' ref={passwordRef}/>
         <button className='register'>Register</button>
 
       </form>
