@@ -16,9 +16,11 @@ const Login = ({ setShowLogin, setCurrentUser }) => {
     };
     try {
       // const response = await axios.post("https://noun-d-be.herokuapp.com/api/users/login", newUser);
-      const response = await axios.post("users/login", newUser);
+      const response = await axios.post("/users/login", newUser);
       setCurrentUser(response.data.username);
+      console.log(setCurrentUser)
       setShowLogin(false);
+      console.log(response)
     } catch (err) {
       console.log(err);
     }
@@ -27,8 +29,7 @@ const Login = ({ setShowLogin, setCurrentUser }) => {
     <div className="login_container">
       <div className="application">Login to your profile</div>
       <form onSubmit={handleSubmit}>
-        <input className= "user_input"
-        type="text" placeholder="username" ref={nameRef} />
+        <input className= "user_input" type="text" placeholder="username" ref={nameRef} />
         <input className= "pass_input" type="password" placeholder="password" ref={passRef} />
         <button className="login_button">Login</button>
       </form>

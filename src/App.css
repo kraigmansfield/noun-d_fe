@@ -15,11 +15,15 @@
 
 /* Need to style  "footer","footer:hover", "button" "button login", "button register", "register:hover","login:hover", "logout", "logout:hover"*/
 .button {
-  border:none;
+  border:greenyellow solid 2px;
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 15 px;
+}
+
+.button:hover {
+  background-color: greenyellow;
 }
 
 .footer {
@@ -30,9 +34,10 @@
   flex-direction: row;
   height: auto;
   width: 100vw;
-  background-color: blue;
+  background-color: grey;
   bottom: 0;
   justify-content: center;
+  border: solid black 2px;
 
 
 

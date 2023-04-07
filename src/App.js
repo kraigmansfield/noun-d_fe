@@ -44,12 +44,12 @@ function App() {
 
     setNewPlace({
       lat: lat,
-      lng: lon,
+      lng: lon
     })
   }
 
   const handlePinSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const newPin = {
       username: currentUser,
@@ -64,7 +64,7 @@ function App() {
       if (!currentUser) {
       } else {
         // const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
-        const response = await axios.post('pins', newPin)
+        const response = await axios.post('/pins', newPin)
         console.log(response)
         setPins([...pins, response.data])
         setNewPlace(null)
@@ -91,7 +91,7 @@ function App() {
   React.useEffect(() => {
     const getPins = async () => {
       try {
-        const response = await axios.get('pins')
+        const response = await axios.get('/pins')
         console.log(response)
         setPins(response.data)
       } catch (err) {
@@ -226,7 +226,7 @@ function App() {
       </div>
       {showRegister && <Register setShowRegister={setShowRegister} />}
       {showLogin && (
-        <Login setShowLogin={setShowLogin} setCurrentUser={setCurrentUser} />
+        <Login setShowLogin = {setShowLogin} setCurrentUser = {setCurrentUser} />
       )}
     </div>
   )
