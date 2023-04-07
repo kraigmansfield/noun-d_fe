@@ -8,6 +8,23 @@
   cursor: pointer;
 }
 
+.review_label {
+  margin-top: 15px;
+}
+
+.title_label {
+  margin-right: 5px;
+}
+
+.rating_label {
+  margin-right: 5px;
+}
+
+.submitBtn {
+  margin-top: 5px;
+  margin-left: 75px;
+}
+
 
 /* Need to style "card","place","label","description","star","info"  for the card information*/
 
