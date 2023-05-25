@@ -20,8 +20,8 @@ const Register = ({setShowRegister}) => {
     }
 
     try{
-      // const response = await axios.post('https://noun-d-be.herokuapp.com/api/users/register',newUser)
-      const response = await axios.post('/users/register',newUser)
+      const response = await axios.post('https://nound.herokuapp.com/api/users/register',newUser)
+      // const response = await axios.post('/users/register',newUser)
       console.log(response)
       setShowRegister(false)
     }catch(err){

@@ -63,8 +63,8 @@ function App() {
     try {
       if (!currentUser) {
       } else {
-        // const response = await axios.post("https://noun-d-be.herokuapp.com/api/pins", newPin)
-        const response = await axios.post('/pins', newPin)
+        const response = await axios.post("https://nound.herokuapp.com/api/pins", newPin)
+        // const response = await axios.post('/pins', newPin)
         console.log(response)
         setPins([...pins, response.data])
         setNewPlace(null)
@@ -91,9 +91,9 @@ function App() {
   React.useEffect(() => {
     const getPins = async () => {
       try {
-        // const response = await axios.get("https://noun-d-be.herokuapp.com/api/pins")
+        const response = await axios.get("https://nound.herokuapp.com/api/pins")
 
-        const response = await axios.get('/pins')
+        // const response = await axios.get('/pins')
         console.log(response)
         setPins(response.data)
       } catch (err) {
@@ -169,19 +169,23 @@ function App() {
           >
             <div>
               <form onSubmit={handlePinSubmit}>
-                <label>Title</label>
+                <label className='title_label' >Title:</label>
                 <input
                   placeholder="Enter a Title"
                   onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <label>Review</label>
+                <br></br>
+
+                <label className='review_label'>Review:</label>
                 <textarea
                   placeholder="Say something about this place"
                   onChange={(e) => setDescription(e.target.value)}
                 />
 
-                <label>Rating</label>
+                <br></br>
+
+                <label className='rating_label'>Rating:</label>
                 <select onChange={(e) => setRating(e.target.value)}>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -189,6 +193,9 @@ function App() {
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
+
+                <br></br>
+                
                 <button className="submitBtn" type="submit">
                   Add Pin{' '}
                 </button>
