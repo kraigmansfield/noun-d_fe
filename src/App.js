@@ -91,6 +91,8 @@ function App() {
   React.useEffect(() => {
     const getPins = async () => {
       try {
+        // const response = await axios.get("https://noun-d-be.herokuapp.com/api/pins")
+
         const response = await axios.get('/pins')
         console.log(response)
         setPins(response.data)
